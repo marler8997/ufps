@@ -22,3 +22,5 @@ log
 Testing/*
 sysroot
 .clangd
+.zig-cache/
+zig-out/

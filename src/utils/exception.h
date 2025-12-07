@@ -1,7 +1,7 @@
 #pragma once
 
 #include <format>
-#include <stacktrace>
+// #include <stacktrace>
 #include <stdexcept>
 #include <string>
 
@@ -14,7 +14,8 @@ class Exception : public std::runtime_error
     template <class... Args>
     Exception(std::format_string<Args...> msg, Args &&...args)
         : std::runtime_error{std::format(msg, std::forward<Args>(args)...)}
-        , what_{std::format("{}\n{}", std::runtime_error::what(), std::stacktrace::current(1)).c_str()}
+        // , what_{std::format("{}\n{}", std::runtime_error::what(), std::stacktrace::current(1)).c_str()}
+        , what_{std::format("{}", std::runtime_error::what()).c_str()}
     {
     }
 

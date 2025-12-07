@@ -19,63 +19,69 @@ namespace
 
 auto os_version(ufps::Wmi &wmi) -> std::string
 {
-    try
-    {
-        const auto caption = wmi.query("SELECT * FROM Win32_OperatingSystem", "Caption") | std::views::join_with(' ') |
-                             std::ranges::to<std::string>();
-        const auto version = wmi.query("SELECT * FROM Win32_OperatingSystem", "Version") | std::views::join_with(' ') |
-                             std::ranges::to<std::string>();
+    (void)wmi;
+    // try
+    // {
+    //     const auto caption = wmi.query("SELECT * FROM Win32_OperatingSystem", "Caption") | std::views::join_with(' ') |
+    //                          std::ranges::to<std::string>();
+    //     const auto version = wmi.query("SELECT * FROM Win32_OperatingSystem", "Version") | std::views::join_with(' ') |
+    //                          std::ranges::to<std::string>();
 
-        return std::format("{} ({})", caption, version);
-    }
-    catch (ufps::Exception &e)
-    {
-        ufps::log::error("failed to get gpu_id: {}", e);
-    }
-    catch (...)
-    {
-        ufps::log::error("failed to get gpu_id");
-    }
+    //     return std::format("{} ({})", caption, version);
+    // }
+    // catch (ufps::Exception &e)
+    // {
+    //     ufps::log::error("failed to get gpu_id: {}", e);
+    // }
+    // catch (...)
+    // {
+    //     ufps::log::error("failed to get gpu_id");
+    // }
 
-    return {};
+    // return {};
+    return "TODO:os_version";
 }
 
 auto gpu_id(const ufps::Wmi &wmi) -> std::string
 {
-    try
-    {
-        const auto props = wmi.query("SELECT * FROM Win32_VideoController", "Caption");
-        return props | std::views::join_with(' ') | std::ranges::to<std::string>();
-    }
-    catch (ufps::Exception &e)
-    {
-        ufps::log::error("failed to get gpu_id: {}", e);
-    }
-    catch (...)
-    {
-        ufps::log::error("failed to get gpu_id");
-    }
+    (void)wmi;
+    return "TODO:gpu_id";
+    // try
+    // {
+    //     const auto props = wmi.query("SELECT * FROM Win32_VideoController", "Caption");
+    //     return props | std::views::join_with(' ') | std::ranges::to<std::string>();
+    // }
+    // catch (ufps::Exception &e)
+    // {
+    //     ufps::log::error("failed to get gpu_id: {}", e);
+    // }
+    // catch (...)
+    // {
+    //     ufps::log::error("failed to get gpu_id");
+    // }
 
-    return {};
+    // return {};
 }
 
 auto gpu_driver(const ufps::Wmi &wmi) -> std::string
 {
-    try
-    {
-        const auto props = wmi.query("SELECT * FROM Win32_VideoController", "DriverVersion");
-        return props | std::views::join_with(' ') | std::ranges::to<std::string>();
-    }
-    catch (ufps::Exception &e)
-    {
-        ufps::log::error("failed to get gpu_driver: {}", e);
-    }
-    catch (...)
-    {
-        ufps::log::error("failed to get gpu_driver");
-    }
+    (void)wmi;
+    return "TODO:gpu_driver";
+    // try
+    // {
+    //     const auto props = wmi.query("SELECT * FROM Win32_VideoController", "DriverVersion");
+    //     return props | std::views::join_with(' ') | std::ranges::to<std::string>();
+    // }
+    // catch (ufps::Exception &e)
+    // {
+    //     ufps::log::error("failed to get gpu_driver: {}", e);
+    // }
+    // catch (...)
+    // {
+    //     ufps::log::error("failed to get gpu_driver");
+    // }
 
-    return {};
+    // return {};
 }
 
 auto system_memory() -> std::string

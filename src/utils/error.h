@@ -2,7 +2,7 @@
 
 #include <format>
 #include <memory>
-#include <stacktrace>
+// #include <stacktrace>
 #include <utility>
 
 #include "exception.h"
@@ -18,7 +18,7 @@ constexpr auto expect(bool predicate, std::format_string<Args...> msg, Args &&..
     if (!predicate)
     {
         log::error("{}", std::format(msg, std::forward<Args>(args)...));
-        log::error("{}", std::stacktrace::current(1));
+        // log::error("{}", std::stacktrace::current(1));
         std::terminate();
         std::unreachable();
     }
